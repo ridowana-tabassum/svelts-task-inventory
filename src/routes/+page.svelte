@@ -45,6 +45,12 @@
     </div>
 </div>
 
+<style>
+    .red-button:hover {
+        background-color: red;
+    }
+</style>
+
 <!-- rendering To-Do list -->
 {#each toDoList as toDo, i}
     <div style="display: flex; align-items: baseline; width: 700px; margin: 0 auto;">
@@ -60,7 +66,9 @@
             {:else}
                 <button on:click={() => setEditing(i, true)}>Edit</button>
             {/if}
-            <button on:click={() => deleteTodo(i)}>Delete</button>
+            <div style="margin-left: 10px;"> <!-- Adjust the margin value as needed -->
+                <button class="red-button" on:click={() => deleteTodo(i)}>Delete</button>
+            </div>
         </div>
     </div>
 {/each}
